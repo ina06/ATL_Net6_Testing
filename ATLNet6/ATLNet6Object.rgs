@@ -1,0 +1,26 @@
+HKCR
+{
+	ATLNet6.1 = s 'ATLNet6Object class'
+	{
+		CLSID = s '{afb06a34-6c95-4c66-9b3a-41e3cd7e06ed}'
+	}
+	ATLNet6 = s 'ATLNet6Object class'
+	{		
+		CurVer = s 'ATLNet6.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {afb06a34-6c95-4c66-9b3a-41e3cd7e06ed} = s 'ATLNet6Object class'
+		{
+			ProgID = s 'ATLNet6.1'
+			VersionIndependentProgID = s 'ATLNet6'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{68169deb-692e-48dd-97b7-2c126609f543}'
+			Version = s '1.0'
+		}
+	}
+}
