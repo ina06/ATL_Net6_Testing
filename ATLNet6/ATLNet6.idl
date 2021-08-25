@@ -1,0 +1,47 @@
+// ATLNet6.idl : IDL source for ATLNet6
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ATLNet6.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(87cde422-6b84-4864-9f7c-aeba37464e87),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IATLNet6Object : IDispatch
+{
+	[id(1)] HRESULT Addition([out, retval] DOUBLE *result);
+};
+[
+	uuid(68169deb-692e-48dd-97b7-2c126609f543),
+	version(1.0),
+]
+library ATLNet6Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(add44277-e9f1-486f-81f7-8cee8496c86f)
+	]
+	dispinterface _IATLNet6ObjectEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method CalcResultChanged")] void CalcResultChanged([in] LONG result);
+	};
+	[
+		uuid(afb06a34-6c95-4c66-9b3a-41e3cd7e06ed)
+	]
+	coclass ATLNet6Object
+	{
+		[default] interface IATLNet6Object;
+		[default, source] dispinterface _IATLNet6ObjectEvents;
+	};
+};
+
+import "shobjidl.idl";
